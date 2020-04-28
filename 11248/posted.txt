@@ -1,0 +1,17 @@
+---
+title: Post a note (#PaN):  on 04/28/20 
+subtitle: a note from michelc 
+preview: envelop.jpg
+bgimg: water.jpg
+hero: books.jpg
+thumbnail: notes.jpg
+---
+![stamp](img/poststamp.png)
+ PaN*ote* on 04/28/20
+
+a note is posted at [] @23:02:48
+
+--&nbsp;<br>
+~michelc (https://.com:8080/ipfs/QmXLTneREXMCYGAWb1rt5nUavGJRNgsPPAH4e8asSd1tUd)
+
+[]: https://gateway.ipfs.io/ipfs/QmXLTneREXMCYGAWb1rt5nUavGJRNgsPPAH4e8asSd1tUd
