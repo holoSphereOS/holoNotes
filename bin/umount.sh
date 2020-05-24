@@ -1,4 +1,4 @@
 #
 cd $(git rev-parse --show-toplevel)
-fusermount -u .git/objects
+fusermount -u .git
 
