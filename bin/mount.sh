@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 
 
 
@@ -46,3 +47,8 @@ fi
 
 remote=$(git remote get-url --push origin)
 echo remote: $remote
+=======
+
+cd $(git rev-parse --show-toplevel)
+cryfs -c .secure/config.key cypher .git -- -o nonempty
+>>>>>>> ceaf2850c098183d089ea8818db4bf2a78406536
