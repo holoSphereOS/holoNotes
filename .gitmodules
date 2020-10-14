@@ -1,0 +1,3 @@
+[submodule "_cypher"]
+	path = _cypher
+	url = git@framagit.org:holoteam/holonotes-cypher.git
