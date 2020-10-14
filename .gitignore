@@ -1,4 +1,5 @@
 .jekyll-cache
-_junk
 *~1
-*.*
+_site
+_cypher
+_junk

@@ -7,3 +7,9 @@ bin/mount.sh
 
 ```
 
+and can be umounted with
+
+```sh
+cryfs-unmount .git
+```
+

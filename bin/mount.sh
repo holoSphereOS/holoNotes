@@ -4,7 +4,7 @@
 # intent: 
 #  mount an encrypted git repository
 #  w/ the command
-#  cryfs $1 $gitdir/objects
+#  cryfs $1 $gitdir
 
 #
 #Deriving encryption key (this can take some time)...done
@@ -21,22 +21,27 @@ if [ "x$1" = 'x' ]; then
  if ! echo "$gitdir" | grep -q -e '/'; then
    gitdir="$pwd/$gitdir"
  fi
-echo "mount: |-"
+ echo "mount: |-"
  mount | grep "$gitdir" | fmt | sed -e 's/^/  /'
 else
-if [ ! -d "$1" ]; then
-  cd $toplevel
-fi
-if [ -e "$1" ]; then
-echo base: $1
-(cd $1; git checkout encrypted)
-else
-echo "warn: ! -e $1"
-fi
-echo toplevel: $toplevel
-echo mountpoint: $gitdir
-export CRYFS_FRONTEND=noninteractive
-echo $pass | cryfs -c "$toplevel/.secure/config.key" --cipher aes-256-gcm --blocksize 16384 "$1" "$gitdir/objects" -o nonempty
+ if [ ! -d "$1" ]; then
+   cd $toplevel
+ fi
+ if [ -e "$1" ]; then
+   echo base: $1
+   (cd $1; git checkout encrypted)
+ else
+   echo "warn: ! -e $1"
+ fi
+ if [ "x$2" != 'x' ]; then
+   mountp="$2"
+ else
+   mountp="$gitdir"
+ fi
+ echo toplevel: $toplevel
+ echo mountpoint: $gitdir
+ export CRYFS_FRONTEND=noninteractive
+ echo $pass | cryfs -c "$toplevel/.secure/config.key" --cipher aes-256-gcm --blocksize 16384 "$1" "$mountp" -o nonempty
 fi
 
 remote=$(git remote get-url --push origin)
